@@ -1,3 +1,7 @@
 
 src/main/java/db/*.java
+# Ignore all class files in the target folder
+target/**/*.class
+# Ignore all .txt files in the entire project
+*.txt
 
