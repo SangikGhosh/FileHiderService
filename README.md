@@ -71,7 +71,7 @@ Follow these instructions to set up the project locally.
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/file-hider-service.git
+   git clone https://github.com/SangikGhosh/FileHiderService.git
    ```
 2. **Navigate to the project directory:**
    ```bash
