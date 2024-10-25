@@ -1,4 +1,3 @@
-# Default ignored files
 
+src/main/java/db/*.java
 
-/src/main/java/db/MyConnection.java
