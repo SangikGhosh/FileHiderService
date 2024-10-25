@@ -75,7 +75,7 @@ Follow these instructions to set up the project locally.
    ```
 2. **Navigate to the project directory:**
    ```bash
-   cd file-hider-service
+   cd FileHiderService
    ```
 3. **Install dependencies:**
    ```bash
