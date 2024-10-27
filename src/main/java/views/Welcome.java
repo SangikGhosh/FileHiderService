@@ -16,8 +16,8 @@ public class Welcome {
     public void welcomeScreen() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Welcome to the File Hider Service");
-        System.out.println("Press 1 to login");
-        System.out.println("Press 2 to signup");
+        System.out.println("1. Existing User (login): ");
+        System.out.println("2. New User (signup): ");
         System.out.println("Press 0 to exit");
         int choice = 0;
         try {
@@ -34,8 +34,8 @@ public class Welcome {
 
     private void login() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter email");
-        String email = sc.nextLine();
+        System.out.println("Enter email: ");
+        String email = sc.next();
         try {
             if(UserDAO.isExists(email)) {
                 String genOTP = GenerateOTP.getOTP();

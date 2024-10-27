@@ -12,7 +12,6 @@ public class UserService {
                 return 0;
             } else {
                 return UserDAO.saveUser(user);
-
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

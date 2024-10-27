@@ -19,10 +19,12 @@ public class UserView {
     public void home() {
         do {
             System.out.println("Welcome " + this.email);
-            System.out.println("Press 1 to show hidden files");
-            System.out.println("Press 2 to hide a new file");
-            System.out.println("Press 3 to visible a file");
-            System.out.println("Press 0 to exit");
+            System.out.println("1. to show hidden files: ");
+            System.out.println("2. to hide a new file: ");
+            System.out.println("3. to visible a file: ");
+            System.out.println("How to hide the file: ");
+            System.out.println("0. to exit: ");
+            System.out.println("Enter your choice: ");
             Scanner sc = new Scanner(System.in);
             int ch = Integer.parseInt(sc.nextLine());
             switch (ch) {
@@ -39,7 +41,7 @@ public class UserView {
                     }
                 }
                 case 2 -> {
-                    System.out.println("\n\nEnter the file path");
+                    System.out.println("\n\nEnter the file path: ");
                     String path = sc.nextLine();
                     File f = new File(path);
                     Data file = new Data(0, f.getName(), path, this.email);
@@ -80,6 +82,18 @@ public class UserView {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                } case 4 -> {
+                    System.out.println("To hide a file, follow these steps:\n" +
+                            "\n" +
+                            "1. **Go to the Location of the File**: First, find the folder where your file is stored. You can do this by:\n" +
+                            "   - Opening the **File Explorer** (on Windows) or **Finder** (on Mac).\n" +
+                            "   - Navigating through the folders until you reach the folder that contains the file you want to hide.\n" +
+                            "\n" +
+                            "2. **Copy the Command**: Use the command or method to hide files (e.g., typing a command in the terminal or command prompt).\n" +
+                            "\n" +
+                            "3. **Paste and Run the Command**: Finally, paste the command in the necessary place (like Command Prompt on Windows) and press **Enter** to execute it.\n" +
+                            "\n" +
+                            "This will hide your file.");
                 }
                 case 0 -> {
                     System.exit(0);
