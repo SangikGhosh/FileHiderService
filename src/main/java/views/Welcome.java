@@ -40,13 +40,13 @@ public class Welcome {
             if(UserDAO.isExists(email)) {
                 String genOTP = GenerateOTP.getOTP();
                 SendOTPService.sendOTP(email, genOTP);
-                System.out.println("Enter the otp");
+                System.out.println("Enter the OTP sent on mail:");
                 String otp = sc.nextLine();
                 if(otp.equals(genOTP)) {
                    new UserView(email).home();
 
                 } else {
-                    System.out.println("Wrong OTP");
+                    System.out.println("Wrong OTP entered");
                 }
             } else {
                 System.out.println("User not found");
@@ -58,13 +58,13 @@ public class Welcome {
     }
     private void signUp() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter name");
+        System.out.println("Enter name: ");
         String name = sc.nextLine();
-        System.out.println("Enter email");
+        System.out.println("Enter email: ");
         String email = sc.nextLine();
         String genOTP = GenerateOTP.getOTP();
         SendOTPService.sendOTP(email, genOTP);
-        System.out.println("Enter the otp");
+        System.out.println("Enter the OTP sent on mail: ");
         String otp = sc.nextLine();
         if(otp.equals(genOTP)) {
             User user = new User(name, email);
@@ -74,7 +74,7 @@ public class Welcome {
                 case 1 -> System.out.println("User already exists");
             }
         } else {
-            System.out.println("Wrong OTP");
+            System.out.println("Wrong OTP entered");
         }
 
     }

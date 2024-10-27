@@ -63,7 +63,7 @@ public class UserView {
                         for (Data file : files) {
                             System.out.println(file.getId() + " - " + file.getFileName());
                         }
-                        System.out.println("Enter the ID of file to visible");
+                        System.out.println("Enter the ID of file to visible: ");
                         int id = Integer.parseInt(sc.nextLine());
                         boolean isValidID = false;
                         for (Data file : files) {
