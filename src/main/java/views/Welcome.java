@@ -41,7 +41,8 @@ public class Welcome {
                 String genOTP = GenerateOTP.getOTP();
                 SendOTPService.sendOTP(email, genOTP);
                 System.out.println("Enter the OTP sent on mail:");
-                String otp = sc.nextLine();
+                String otp = sc.next();
+                sc.nextLine();
                 if(otp.equals(genOTP)) {
                    new UserView(email).home();
 
@@ -65,7 +66,8 @@ public class Welcome {
         String genOTP = GenerateOTP.getOTP();
         SendOTPService.sendOTP(email, genOTP);
         System.out.println("Enter the OTP sent on mail: ");
-        String otp = sc.nextLine();
+        String otp = sc.next();
+        sc.nextLine();
         if(otp.equals(genOTP)) {
             User user = new User(name, email);
             int response = UserService.saveUser(user);
