@@ -8,7 +8,7 @@ import java.util.Properties;
 public class SendOTPService {
     public static void sendOTP(String email, String genOTP) {
         String to = email;
-        String from = "YOUR_MAIL";
+        String from = "sangik.ghosh1@gmail.com";
         String host = "smtp.gmail.com";
         Properties properties = System.getProperties();
         properties.put("mail.smtp.host", host);
@@ -19,7 +19,7 @@ public class SendOTPService {
         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
 
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(from, "APP_PASSWORD");
+                return new PasswordAuthentication(from, "rvxm hrfw hiwr krvv");
             }
 
         });

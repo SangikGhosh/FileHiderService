@@ -5,7 +5,7 @@ import model.User;
 import service.GenerateOTP;
 import service.SendOTPService;
 import service.UserService;
-
+import views.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -36,21 +36,27 @@ public class Welcome {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter email: ");
         String email = sc.next();
+        System.out.println("Enter password: ");
+        String password = sc.next();
         try {
             if(UserDAO.isExists(email)) {
-                String genOTP = GenerateOTP.getOTP();
-                SendOTPService.sendOTP(email, genOTP);
-                System.out.println("Enter the OTP sent on mail:");
-                String otp = sc.next();
-                sc.nextLine();
-                if(otp.equals(genOTP)) {
-                   new UserView(email).home();
+                if(UserDAO.validatePassword(email, password)) {
+                    String genOTP = GenerateOTP.getOTP();
+                    SendOTPService.sendOTP(email, genOTP);
+                    System.out.println("Enter the OTP sent on mail:");
+                    String otp = sc.next();
+                    sc.nextLine();
+                    if(otp.equals(genOTP)) {
+                        new UserView(email).home();
 
+                    } else {
+                        System.out.println("Wrong OTP entered");
+                    }
                 } else {
-                    System.out.println("Wrong OTP entered");
+                    System.out.println("Incorrect password");
                 }
             } else {
-                System.out.println("User not found");
+                System.out.println("User not found ");
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -63,17 +69,23 @@ public class Welcome {
         String name = sc.nextLine();
         System.out.println("Enter email: ");
         String email = sc.nextLine();
+        System.out.println("Enter password: ");
+        String password = sc.nextLine();
         String genOTP = GenerateOTP.getOTP();
         SendOTPService.sendOTP(email, genOTP);
         System.out.println("Enter the OTP sent on mail: ");
         String otp = sc.next();
         sc.nextLine();
         if(otp.equals(genOTP)) {
-            User user = new User(name, email);
+            User user = new User(name, email, password);
             int response = UserService.saveUser(user);
             switch (response) {
-                case 0 -> System.out.println("User registered");
-                case 1 -> System.out.println("User already exists");
+                case 1 -> {
+                    System.out.println("User registered");
+                    UserView uv = new UserView(email);
+                    uv.home();
+                }
+                case 0 -> System.out.println("User already exists");
             }
         } else {
             System.out.println("Wrong OTP entered");

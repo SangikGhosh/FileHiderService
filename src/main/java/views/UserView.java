@@ -22,7 +22,7 @@ public class UserView {
             System.out.println("1. to show hidden files: ");
             System.out.println("2. to hide a new file: ");
             System.out.println("3. to visible a file: ");
-            System.out.println("How to hide the file: ");
+            System.out.println("4. How to hide the file: ");
             System.out.println("0. to exit: ");
             System.out.println("Enter your choice: ");
             Scanner sc = new Scanner(System.in);
