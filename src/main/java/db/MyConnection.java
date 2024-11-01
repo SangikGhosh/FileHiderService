@@ -18,13 +18,13 @@ public class MyConnection {
         }
         return connection;
     }
-    public static void closeConnection() {
-        if(connection != null) {
-            try {
-                connection.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
+//    public static void closeConnection() {
+//        if(connection != null) {
+//            try {
+//                connection.close();
+//            } catch (SQLException ex) {
+//                ex.printStackTrace();
+//            }
+//        }
+//    }
 }
